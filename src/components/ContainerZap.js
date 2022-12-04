@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import logo from "../assets/logo.png"
+import FlashCards from "./FlashCards"
+import Rodape from "./Rodape"
 
 export default function ContainerZap() {
     return (
@@ -8,6 +10,11 @@ export default function ContainerZap() {
                 <img src={logo} alt="Logo de Raio"></img>
                 <h1>ZapRecall</h1>
             </Logo>
+            <FlashCards/>
+            <FlashCards/>
+            <FlashCards/>
+            <Rodape/>
+            
         </ContainerTela>
 
     )
