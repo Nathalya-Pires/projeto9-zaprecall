@@ -1,18 +1,15 @@
 import styled from "styled-components"
-import Card from "./Card"
+import { cards } from "./deck"
 
-export default function Rodape(){
-
+export default function Rodape({contador}){
 
     return(
         <Footer>
-            <p>/8 CONCLUÍDOS</p>
+            <p>{contador}/{cards.length} CONCLUÍDOS</p>
         </Footer>
 
     )
 }
-
-
 
 const Footer = styled.div`
   width: 100%;

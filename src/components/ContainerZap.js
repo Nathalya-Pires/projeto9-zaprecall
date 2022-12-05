@@ -2,24 +2,26 @@ import styled from "styled-components"
 import logo from "../assets/logo.png"
 import FlashCards from "./FlashCards"
 import Rodape from "./Rodape"
+import { useState } from "react"
 
 export default function ContainerZap() {
+  const [contador, setContador] = useState(0)
+
+
     return (
         <ContainerTela>
             <Logo>
                 <img src={logo} alt="Logo de Raio"></img>
                 <h1>ZapRecall</h1>
             </Logo>
-            <FlashCards/>
-            <Rodape/>
+            <FlashCards contador={contador} setContador={setContador}/>
+            <Rodape contador={contador}/>
             
         </ContainerTela>
 
     )
 
 }
-
-
 
 
 const ContainerTela = styled.div`

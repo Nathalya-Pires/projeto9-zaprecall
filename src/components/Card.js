@@ -7,7 +7,7 @@ import quase from "../assets/icone_quase.png"
 import { useState } from "react"
 
 
-export default function Card({ elem, i }) {
+export default function Card({ elem, i, contador, setContador}) {
     const [flashCardFechado, setFlashCardFechado] = useState(true)
     const [flashCardAberto, setFlashCardAberto] = useState(false)
     const [flashCardResposta, setFlashCardResposta] = useState(false)
@@ -47,9 +47,9 @@ export default function Card({ elem, i }) {
             <CardResposta data-test="flashcard">
                 <p data-test="flashcard-text">{elem.resposta}</p>
                 <div>
-                    <Botao data-test="no-btn" cor={cores.vermelho} onClick={() => (setFlashCardFinalizado(true), setFlashCardResposta(false), (setIcone(erro)), setCorClicada(cores.vermelho))}>Não lembrei</Botao>
-                    <Botao data-test="partial-btn" cor={cores.amarelo} onClick={() => (setFlashCardFinalizado(true), setFlashCardResposta(false), (setIcone(quase)), setCorClicada(cores.amarelo))}>Quase não lembrei</Botao>
-                    <Botao data-test="zap-btn" cor={cores.verde} onClick={() => (setFlashCardFinalizado(true), setFlashCardResposta(false), (setIcone(certo)), setCorClicada(cores.verde))}>Zap!</Botao>
+                    <Botao data-test="no-btn" cor={cores.vermelho} onClick={() => (setFlashCardFinalizado(true), setFlashCardResposta(false), (setIcone(erro)), setCorClicada(cores.vermelho), setContador(contador + 1))}>Não lembrei</Botao>
+                    <Botao data-test="partial-btn" cor={cores.amarelo} onClick={() => (setFlashCardFinalizado(true), setFlashCardResposta(false), (setIcone(quase)), setCorClicada(cores.amarelo), setContador(contador + 1))}>Quase não lembrei</Botao>
+                    <Botao data-test="zap-btn" cor={cores.verde} onClick={() => (setFlashCardFinalizado(true), setFlashCardResposta(false), (setIcone(certo)), setCorClicada(cores.verde), setContador(contador + 1))}>Zap!</Botao>
                 </div>
             </CardResposta>
 
@@ -57,6 +57,9 @@ export default function Card({ elem, i }) {
     }
 
     if (flashCardFinalizado && true) {
+        
+        //console.log("contador")
+        //console.log(contador)
         return(
             <CardFinalizado data-test="flashcard" corClicada={corClicada}>
                 <p data-test="flashcard-text"><s>Pergunta {i + 1}</s></p>
