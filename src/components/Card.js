@@ -1,6 +1,9 @@
 import styled from "styled-components"
 import play from "../assets/seta_play.png"
 import virar from "../assets/seta_virar.png"
+import certo from "../assets/icone_certo.png"
+import erro from "../assets/icone_erro.png"
+import quase from "../assets/icone_quase.png"
 import { useState } from "react"
 
 
@@ -8,6 +11,9 @@ export default function Card({ elem, i }) {
     const [flashCardFechado, setFlashCardFechado] = useState(true)
     const [flashCardAberto, setFlashCardAberto] = useState(false)
     const [flashCardResposta, setFlashCardResposta] = useState(false)
+    const [flashCardFinalizado, setFlashCardFinalizado] = useState(false)
+    const [icone, setIcone] = useState("")
+    const [corClicada, setCorClicada] = useState("")
     const cores = {verde:"#2FBE34", amarelo:"#FF922E", vermelho:"#FF3030"}
 
     if (flashCardFechado && true) {
@@ -41,15 +47,26 @@ export default function Card({ elem, i }) {
             <CardResposta>
                 <p>{elem.resposta}</p>
                 <div>
-                    <Botao cor={cores.vermelho}>Não lembrei</Botao>
-                    <Botao cor={cores.amarelo}>Quase não lembrei</Botao>
-                    <Botao cor={cores.verde}>Zap!</Botao>
+                    <Botao cor={cores.vermelho} onClick={() => (setFlashCardFinalizado(true), setFlashCardResposta(false), (setIcone(erro)), setCorClicada(cores.vermelho))}>Não lembrei</Botao>
+                    <Botao cor={cores.amarelo} onClick={() => (setFlashCardFinalizado(true), setFlashCardResposta(false), (setIcone(quase)), setCorClicada(cores.amarelo))}>Quase não lembrei</Botao>
+                    <Botao cor={cores.verde} onClick={() => (setFlashCardFinalizado(true), setFlashCardResposta(false), (setIcone(certo)), setCorClicada(cores.verde))}>Zap!</Botao>
                 </div>
             </CardResposta>
 
         )
     }
 
+    if (flashCardFinalizado && true) {
+        return(
+            <CardFinalizado corClicada={corClicada}>
+                <p><s>Pergunta {i + 1}</s></p>
+                <img
+                    src={icone}
+                    alt="Icone">
+                </img>
+            </CardFinalizado>
+        )
+    }
 
 }
 
@@ -83,7 +100,6 @@ const CardFechado = styled.div`
     }
 
 `
-
 const CardAberto = styled.div`
   width: 300px;
   margin: 12px;
@@ -110,7 +126,6 @@ const CardAberto = styled.div`
   cursor: pointer
   }
 `
-
 const CardResposta = styled.div`
   width: 300px;
   margin: 12px;
@@ -153,4 +168,32 @@ const Botao = styled.button`
   border: 1px solid ${props => props.cor};
   padding:5px;
   cursor: pointer;
+`
+const CardFinalizado = styled.div`
+    width: 300px;
+    height: 35px;
+    background-color: #FFFFFF;
+    margin: 12px;
+    padding: 15px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    p{
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: ${props => props.corClicada}
+    }
+
+    img{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    }
 `
