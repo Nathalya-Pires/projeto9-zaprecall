@@ -1,9 +1,12 @@
 import styled from "styled-components"
+import Card from "./Card"
 
 export default function Rodape(){
+
+
     return(
         <Footer>
-            <p>0/4 CONCLUÍDOS</p>
+            <p>/8 CONCLUÍDOS</p>
         </Footer>
 
     )

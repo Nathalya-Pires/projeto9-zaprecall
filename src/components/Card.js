@@ -18,9 +18,9 @@ export default function Card({ elem, i }) {
 
     if (flashCardFechado && true) {
         return (
-            <CardFechado>
-                <p>Pergunta {i + 1}</p>
-                <img
+            <CardFechado data-test="flashcard">
+                <p data-test="flashcard-text">Pergunta {i + 1}</p>
+                <img data-test="play-btn"
                     src={play}
                     onClick={() => (setFlashCardAberto(true), setFlashCardFechado(false))}
                     alt="Icone de Play">
@@ -32,10 +32,10 @@ export default function Card({ elem, i }) {
 
     if (flashCardAberto && true) {
         return (
-            <CardAberto>
-                <p>{elem.pergunta}</p>
-                <img
-                    src={virar}
+            <CardAberto data-test="flashcard">
+                <p data-test="flashcard-text">{elem.pergunta}</p>
+                <img data-test="turn-btn"
+                    src={virar} 
                     onClick={() => (setFlashCardResposta(true), setFlashCardAberto(false))}
                     alt="Icone de virar"></img>
             </CardAberto>
@@ -44,12 +44,12 @@ export default function Card({ elem, i }) {
 
     if (flashCardResposta && true) {
         return (
-            <CardResposta>
-                <p>{elem.resposta}</p>
+            <CardResposta data-test="flashcard">
+                <p data-test="flashcard-text">{elem.resposta}</p>
                 <div>
-                    <Botao cor={cores.vermelho} onClick={() => (setFlashCardFinalizado(true), setFlashCardResposta(false), (setIcone(erro)), setCorClicada(cores.vermelho))}>Não lembrei</Botao>
-                    <Botao cor={cores.amarelo} onClick={() => (setFlashCardFinalizado(true), setFlashCardResposta(false), (setIcone(quase)), setCorClicada(cores.amarelo))}>Quase não lembrei</Botao>
-                    <Botao cor={cores.verde} onClick={() => (setFlashCardFinalizado(true), setFlashCardResposta(false), (setIcone(certo)), setCorClicada(cores.verde))}>Zap!</Botao>
+                    <Botao data-test="no-btn" cor={cores.vermelho} onClick={() => (setFlashCardFinalizado(true), setFlashCardResposta(false), (setIcone(erro)), setCorClicada(cores.vermelho))}>Não lembrei</Botao>
+                    <Botao data-test="partial-btn" cor={cores.amarelo} onClick={() => (setFlashCardFinalizado(true), setFlashCardResposta(false), (setIcone(quase)), setCorClicada(cores.amarelo))}>Quase não lembrei</Botao>
+                    <Botao data-test="zap-btn" cor={cores.verde} onClick={() => (setFlashCardFinalizado(true), setFlashCardResposta(false), (setIcone(certo)), setCorClicada(cores.verde))}>Zap!</Botao>
                 </div>
             </CardResposta>
 
@@ -58,8 +58,8 @@ export default function Card({ elem, i }) {
 
     if (flashCardFinalizado && true) {
         return(
-            <CardFinalizado corClicada={corClicada}>
-                <p><s>Pergunta {i + 1}</s></p>
+            <CardFinalizado data-test="flashcard" corClicada={corClicada}>
+                <p data-test="flashcard-text"><s>Pergunta {i + 1}</s></p>
                 <img
                     src={icone}
                     alt="Icone">
