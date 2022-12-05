@@ -5,7 +5,7 @@ export default function Rodape({contador}){
 
     return(
         <Footer>
-            <p>{contador}/{cards.length} CONCLUÍDOS</p>
+            <p data-test="footer">{contador}/{cards.length} CONCLUÍDOS</p>
         </Footer>
 
     )

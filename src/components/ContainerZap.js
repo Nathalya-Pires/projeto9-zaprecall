@@ -3,6 +3,7 @@ import logo from "../assets/logo.png"
 import FlashCards from "./FlashCards"
 import Rodape from "./Rodape"
 import { useState } from "react"
+import ContainerTela from "../style/ContainerTela"
 
 export default function ContainerZap() {
   const [contador, setContador] = useState(0)
@@ -16,25 +17,12 @@ export default function ContainerZap() {
             </Logo>
             <FlashCards contador={contador} setContador={setContador}/>
             <Rodape contador={contador}/>
-            
         </ContainerTela>
 
     )
 
 }
 
-
-const ContainerTela = styled.div`
-  background-color: #FB6B6B;
-  width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0px;
-  padding: 0px;
-  padding-bottom: 200px;
-`
 
 const Logo = styled.div`
   display: flex;

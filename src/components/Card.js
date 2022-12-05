@@ -57,7 +57,6 @@ export default function Card({ elem, i, contador, setContador}) {
     }
 
     if (flashCardFinalizado && true) {
-        
         //console.log("contador")
         //console.log(contador)
         return(
