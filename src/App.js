@@ -1,5 +1,5 @@
 import ContainerZap from "./components/ContainerZap";
-import GlobalStyle from "./css/GlobalStyle";
+import GlobalStyle from "./style/GlobalStyle";
 
 
 export default function App() {

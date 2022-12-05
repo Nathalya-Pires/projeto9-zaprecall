@@ -1,4 +1,4 @@
-const cards = [
+export const cards = [
 	{ pergunta: "O que é JSX?", resposta: "Uma extensão da linguagem JavaScript" },
 	{ pergunta: "O React é __", resposta: "Uma biblioteca JavaScript para construção de interfaces" },
 	{ pergunta: "Componentes devem iniciar com __", resposta: "Letra maiúscula" },
@@ -8,3 +8,4 @@ const cards = [
 	{ pergunta: "Usamos props para __", resposta: "Passar diferentes informações para componentes" },
 	{ pergunta: "Usamos estado (state) para __", resposta: "Dizer para o React quais informações quando atualizadas devem renderizar a tela novamente" }
 ]
+

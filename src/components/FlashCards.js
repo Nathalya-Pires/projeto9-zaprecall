@@ -1,13 +1,16 @@
 import styled from "styled-components"
 import play from "../assets/seta_play.png"
+import { cards } from "./deck"
 
-export default function FlashCards(){
+export default function FlashCards() {
+    return (
+        <>
+            {cards.map((c, i) => <Card key={i}>
+                <p>Pergunta {i + 1}</p>
+                <img src={play} alt="Icone de Play"></img>
+            </Card>)}
+        </>
 
-    return(
-        <Card>
-            <p>Pergunta 1</p>
-            <img src={play} alt="Icone de Play"></img>
-        </Card>
     )
 
 }

@@ -11,8 +11,6 @@ export default function ContainerZap() {
                 <h1>ZapRecall</h1>
             </Logo>
             <FlashCards/>
-            <FlashCards/>
-            <FlashCards/>
             <Rodape/>
             
         </ContainerTela>
